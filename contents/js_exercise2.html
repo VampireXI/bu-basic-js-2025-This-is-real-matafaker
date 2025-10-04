@@ -65,8 +65,10 @@
         function add(){
             let fristname = document.getElementById('txtfristname').value
             let lastname = document.getElementById('txtlastname').value;
-            if(fristname === '' || lastname === '') 
-                alert('Please enter both first name and last name');
+            if(fristname === '' || lastname === '') {
+                alert('Please enter both first name and last name')
+                return
+            }
             let tbody = document.querySelector('table tbody')
             let newRow = document.createElement('tr')
             let tdfristname = document.createElement('td')
@@ -82,7 +84,6 @@
         function resetTable(){
             let tbody = document.querySelector('table tbody')
             tbody.innerHTML = ''
-            
         }
     </script>
 </body>
