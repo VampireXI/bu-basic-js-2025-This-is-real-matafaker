@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta>
+    <title>JS - Exercise</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            /* Fixed table width */
+            table-layout: fixed;
+            /* Important: forces fixed column width */
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            overflow: hidden;
+            /* Hide overflow text */
+            text-overflow: ellipsis;
+            /* Add "..." when text too long */
+            white-space: nowrap;
+            /* Prevent line break */
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="window.history.back();">Back</button>
+    <h1>Exercise</h1>
+    </ul>
+
+    </p>
+
+    <h2>Your solution for exercise</h2>
+    <input id='txtfristname' type="text" placeholder="Enter your frist name"/>
+    <input id='txtlastname' type="text" placeholder="Enter your last name"/>
+    <input id="btnAdd" type="button" value="add" onclick ="add()"/>
+    <input id="btnResetInput" type="button" value="Reset input" onclick="resetInput()"/>
+    <input id="btnResetTable" type="button" value="Reset table" onclick='resetTable()'/>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Frist name</td>
+                <td>Last name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function resetInput(){
+            document.getElementById('txtfristname').value=''
+            document.getElementById('txtlastname').value=''
+        }
+        function add(){
+            let fristname = document.getElementById('txtfristname').value
+            let lastname = document.getElementById('txtlastname').value;
+            if(fristname === '' || lastname === '') 
+                alert('Please enter both first name and last name');
+            let tbody = document.querySelector('table tbody')
+            let newRow = document.createElement('tr')
+            let tdfristname = document.createElement('td')
+            tdfristname.textContent = fristname
+            let tdlastname = document.createElement('td')
+            tdlastname.textContent = lastname
+            newRow.appendChild(tdfristname)
+            newRow.appendChild(tdlastname)
+            tbody.appendChild(newRow)
+            document.getElementById('txtfristname').value = ''
+            document.getElementById('txtlastname').value = ''
+        }
+        function resetTable(){
+            let tbody = document.querySelector('table tbody')
+            if(tbody = '') 
+                alert('Please enter both first name and last name');
+            tbody.innerHTML = ''
+        }
+    </script>
+</body>
+
+</html>
